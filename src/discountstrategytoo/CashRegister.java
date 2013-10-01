@@ -11,9 +11,6 @@ package discountstrategytoo;
 public class CashRegister {
     
     private Receipt receipt;
-
-    public CashRegister() {
-    }
     
     public void startNewTransaction(int customerID){
         receipt = new Receipt(customerID);

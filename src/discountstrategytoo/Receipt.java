@@ -11,12 +11,13 @@ package discountstrategytoo;
 public class Receipt {
         
     private Customer customer;
-    
+    private Product product;
     private FakeDatabase fd;
     
     public Receipt(int customerID) {
         this.fd = new FakeDatabase();
         customer = findCustomerByID(customerID);
+        product = 
     }
     
     

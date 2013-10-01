@@ -11,15 +11,26 @@ package discountstrategytoo;
 public class FakeDatabase {
     
     private Customer[] customers = {
-        
         new Customer("Dave", 001)
     };
-    public Customer getCustomerByID(int ID){
+    public Customer getCustomerByID(int cID){
         for (Customer w : customers){
-            if (w.getCustomerID() == ID){
+            if (w.getCustomerID() == cID){
                 return w;
             }
         }
         throw new IllegalArgumentException("must be a valid customer ID");
     }
+    private Product[] products = {
+        new Product("Hat", 010)
+    };
+    public Product getProductByID(int pID){
+        for (Product p : products) {
+            if (p.getPoductID() == pID){
+                return p;
+            }
+        }
+        throw new IllegalArgumentException("must be a valid product ID");
+    }
+    
 }
