@@ -10,19 +10,15 @@ package discountstrategytoo;
  */
 public class CashRegister {
     
-    private Customer customer;
-    
-    private FakeDatabase fd;
+    private Receipt receipt;
 
-    public CashRegister(Customer customer, FakeDatabase fd) {
-        this.customer = customer;
-        this.fd = new fd;
+    public CashRegister() {
     }
     
-    
-    public findCustomerByID(int customerID){
-        customer = fd.getCustomerByID(customerID)
-                return customerID;
+    public void startNewTransaction(int customerID){
+        receipt = new Receipt(customerID);
     }
-    
+    public void printReceipt(){
+        System.out.println(receipt.getReceipt());
+    }
 }

@@ -16,5 +16,8 @@ public class Startup {
     public static void main(String[] args) {
         
         CashRegister cr = new CashRegister();
+        
+        cr.startNewTransaction(001);
+        cr.printReceipt();
     }
 }
