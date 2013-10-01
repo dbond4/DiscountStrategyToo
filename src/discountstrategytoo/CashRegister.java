@@ -12,9 +12,10 @@ public class CashRegister {
     
     private Receipt receipt;
     
-    public void startNewTransaction(int customerID){
-        receipt = new Receipt(customerID);
+    public void startNewTransaction(int customerID, int productID){
+        receipt = new Receipt(customerID, productID);
     }
+    
     public void printReceipt(){
         System.out.println(receipt.getReceipt());
     }
