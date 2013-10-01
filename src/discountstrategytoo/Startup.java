@@ -17,7 +17,7 @@ public class Startup {
         
         CashRegister cr = new CashRegister();
         
-        cr.startNewTransaction(001);
+        cr.startNewTransaction(001, 010);
         cr.printReceipt();
     }
 }

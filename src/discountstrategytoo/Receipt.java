@@ -30,7 +30,8 @@ public class Receipt {
             }
     
     public String getReceipt(){
-        String receiptData = customer.getCustomerName();
+        String receiptData = customer.getCustomerName() + "\n";
+        receiptData += product.getProductName();
         return receiptData;
     }
 }
