@@ -12,10 +12,12 @@ public class Product {
 
     private String productName;
     private int poductID;
+    private double unitCost;
 
-    public Product(String productName, int poductID) {
+    public Product(String productName, int poductID, double unitCost) {
         this.productName = productName;
         this.poductID = poductID;
+        this.unitCost = unitCost;
     }
 
     public String getProductName() {
@@ -32,6 +34,14 @@ public class Product {
 
     public void setPoductID(int poductID) {
         this.poductID = poductID;
+    }
+
+    public double getUnitCost() {
+        return unitCost;
+    }
+
+    public void setUnitCost(double unitCost) {
+        this.unitCost = unitCost;
     }
     
     

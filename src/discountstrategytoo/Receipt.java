@@ -11,23 +11,17 @@ package discountstrategytoo;
 public class Receipt {
         
     private Customer customer;
-    private Product product;
     private FakeDatabase fd;
     
-    public Receipt(int customerID, int productID) {
+    public Receipt(int customerID) {
         this.fd = new FakeDatabase();
         customer = findCustomerByID(customerID);
-        product = findProductByID(productID);
     }
     
     public Customer findCustomerByID(int customerID){
         customer = fd.getCustomerByID(customerID);
                 return customer;
     }
-    public Product findProductByID(int productID){
-            product = fd.getProductByID(productID);
-                    return product;
-            }
     
     public String getReceipt(){
         String receiptData = customer.getCustomerName() + "\n";
