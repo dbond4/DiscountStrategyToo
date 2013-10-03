@@ -12,11 +12,11 @@ public class LineItem {
     
     private Product product;
     private int quantity;
-    private FakeDatabase fd;
     
-    public LineItem(int productID, int quantity) {
+    public LineItem(Product product, int quantity) {
         this.quantity = quantity;
-        product = findProductByID(productID);
+        this.product = product;
+        
     }
     
     public double getSubtotal(){
@@ -25,12 +25,7 @@ public class LineItem {
     
     public String getItemName(){
         return product.getProductName();
-        
     }
-    public Product findProductByID(int productID){
-            product = fd.getProductByID(productID);
-                    return product;
-            }
 
     public int getQuantity() {
         return quantity;

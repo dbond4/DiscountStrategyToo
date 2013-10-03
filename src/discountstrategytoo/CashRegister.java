@@ -16,6 +16,10 @@ public class CashRegister {
         receipt = new Receipt(customerID);
     }
     
+    public void startItemScanning(int productID, int quantity){
+        receipt.addItem(productID, quantity);
+    }
+    
     public void printReceipt(){
         System.out.println(receipt.getReceipt());
     }
