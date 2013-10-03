@@ -4,6 +4,8 @@
  */
 package discountstrategytoo;
 
+import java.text.NumberFormat;
+
 /**
  *
  * @author F03 H4MM3R
@@ -13,6 +15,7 @@ public class Receipt {
     private Customer customer;
     private FakeDatabase fd;
     private LineItem[] lineItems = new LineItem[0];
+    NumberFormat nf = NumberFormat.getCurrencyInstance();
     
     public void addItem(int productID, int quantity){
         LineItem item = new LineItem(fd.getProductByID(productID), quantity);
@@ -41,10 +44,30 @@ public class Receipt {
         customer = fd.getCustomerByID(customerID);
                 return customer;
     }
+    public double getTotalBeforeDiscount(){
+        double grandTotal = 0;
+        for(LineItem item : lineItems){
+            grandTotal += item.getSubtotal();
+        }
+        return grandTotal;
+    }
+    public double getTotalAfterDiscount(){
+        double grandTotal = 0;
+        for(LineItem item : lineItems){
+            grandTotal += item.getSubtotalAfterDiscount();
+        }
+        return grandTotal;
+    }
     
     public String getReceipt(){
         String receiptData = customer.getCustomerName() + "\n";
         receiptData += getItemsFromArray();
+        //get total before discount
+        receiptData += nf.format(getTotalBeforeDiscount()) + "\n";
+        //get total after discount
+        receiptData += nf.format(getTotalAfterDiscount()) + "\n";
+        //amount saved
+        
         return receiptData;
     }
 }

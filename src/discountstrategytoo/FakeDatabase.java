@@ -22,9 +22,9 @@ public class FakeDatabase {
         throw new IllegalArgumentException("must be a valid customer ID");
     }
     private Product[] products = {
-        new Product("Hat", 100, 14.99),
-        new Product("shirt", 200, 19.99),
-        new Product("jeans", 300, 39.99)
+        new Product("Hat", 100, 14.99, new NoDiscount()),
+        new Product("shirt", 200, 19.99, new QuantityDiscount(.15, 2)),
+        new Product("jeans", 300, 39.99, new NoDiscount())
     };
     public Product getProductByID(int pID){
         for (Product p : products) {

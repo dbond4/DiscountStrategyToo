@@ -8,8 +8,11 @@ package discountstrategytoo;
  *
  * @author F03 H4MM3R
  */
-public class NoDiscount {
-    
-    
+public class NoDiscount implements DiscountStrategy{
+
+    @Override
+    public double getDiscountRate(int quantity, double unitCost) {
+        return (quantity * unitCost);
+        }
     
 }

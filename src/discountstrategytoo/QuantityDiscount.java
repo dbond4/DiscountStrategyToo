@@ -12,7 +12,7 @@ public class QuantityDiscount implements DiscountStrategy{
     
     private double discountRate;
     private int minimumQuantity;
-    
+    private final int ONE = 1;
 
     public QuantityDiscount(double discountRate, int minimumQuantity) {
         this.discountRate = discountRate;
@@ -41,7 +41,7 @@ public class QuantityDiscount implements DiscountStrategy{
             return quantity * unitCost;
         }
         else{
-            return (quantity * unitCost) * (1 - getDiscountRate());
+            return (quantity * unitCost) * (ONE - getDiscountRate());
         }
     }
     

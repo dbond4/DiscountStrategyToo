@@ -35,6 +35,8 @@ public class LineItem {
         this.quantity = quantity;
     }
     
-    
+    public double getSubtotalAfterDiscount(){
+        return product.getDiscountPrice(quantity);
+    }
     
 }

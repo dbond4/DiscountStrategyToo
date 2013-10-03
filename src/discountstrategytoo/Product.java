@@ -13,11 +13,13 @@ public class Product {
     private String productName;
     private int poductID;
     private double unitCost;
+    private DiscountStrategy discount;
 
-    public Product(String productName, int poductID, double unitCost) {
+    public Product(String productName, int poductID, double unitCost, DiscountStrategy ds) {
         this.productName = productName;
         this.poductID = poductID;
         this.unitCost = unitCost;
+        discount = ds;
     }
 
     public String getProductName() {
@@ -44,5 +46,8 @@ public class Product {
         this.unitCost = unitCost;
     }
     
+    public double getDiscountPrice(int quantity){
+        return discount.getDiscountRate(quantity, unitCost);
+    }
     
 }
