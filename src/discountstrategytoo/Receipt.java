@@ -16,6 +16,7 @@ public class Receipt {
     private FakeDatabase fd;
     private LineItem[] lineItems = new LineItem[0];
     NumberFormat nf = NumberFormat.getCurrencyInstance();
+    private static final String TFSaK = "Thank you for shopping at Kohls";
     
     public void addItem(int productID, int quantity){
         LineItem item = new LineItem(fd.getProductByID(productID), quantity);
@@ -30,7 +31,7 @@ public class Receipt {
     private String getItemsFromArray(){
         String itemList = "";
         for (int i = 0; i < lineItems.length; i++){
-            itemList += lineItems[i].getItemName() + " | " + lineItems[i].getQuantity() + "\n";
+            itemList += lineItems[i].getItemName() + "          " + lineItems[i].getQuantity() + "\n";
         }
         return itemList;
     }
@@ -60,7 +61,9 @@ public class Receipt {
     }
     
     public String getReceipt(){
-        String receiptData = customer.getCustomerName() + "\n";
+        String receiptData = TFSaK + "\n";
+        receiptData += customer.getCustomerName() + "\n";
+        receiptData += "Description         Quantity            Price           DPrice" + "\n";
         receiptData += getItemsFromArray();
         //get total before discount
         receiptData += nf.format(getTotalBeforeDiscount()) + "\n";
