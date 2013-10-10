@@ -31,11 +31,11 @@ public class Receipt {
     private String getItemsFromArray(){
         String itemList = "";
         for (int i = 0; i < lineItems.length; i++){
-            itemList += lineItems[i].getItemName() + "          " + lineItems[i].getQuantity() + "\n";
+            itemList += lineItems[i].getItemName() + " | " + lineItems[i].getQuantity() + " | " + nf.format(lineItems[i].getUnitCost() * lineItems[i].getQuantity()) + "\n";
         }
         return itemList;
     }
-    
+        
     public Receipt(int customerID) {
         this.fd = new FakeDatabase();
         customer = findCustomerByID(customerID);
@@ -59,16 +59,17 @@ public class Receipt {
         }
         return grandTotal;
     }
-    
+       
     public String getReceipt(){
         String receiptData = TFSaK + "\n";
-        receiptData += customer.getCustomerName() + "\n";
-        receiptData += "Description         Quantity            Price           DPrice" + "\n";
+        receiptData += "Customer: " + customer.getCustomerName() + "\n";
+        receiptData += "Itme | Quantity | Cost: " + "\n";
         receiptData += getItemsFromArray();
         //get total before discount
-        receiptData += nf.format(getTotalBeforeDiscount()) + "\n";
+        receiptData += "Original Cost: " + nf.format(getTotalBeforeDiscount()) + "\n";
         //get total after discount
-        receiptData += nf.format(getTotalAfterDiscount()) + "\n";
+        receiptData += "Discount amount: " + nf.format(getTotalBeforeDiscount() - getTotalAfterDiscount()) + "\n";
+        receiptData += "Discounted Cost: " + nf.format(getTotalAfterDiscount()) + "\n";
         //amount saved
         
         return receiptData;

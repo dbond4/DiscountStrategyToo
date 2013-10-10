@@ -23,8 +23,8 @@ public class FakeDatabase {
     }
     private Product[] products = {
         new Product("Hat", 100, 14.99, new NoDiscount()),
-        new Product("shirt", 200, 19.99, new QuantityDiscount(.15, 2)),
-        new Product("jeans", 300, 39.99, new NoDiscount())
+        new Product("Shirt", 200, 19.99, new QuantityDiscount(.15, 2)),
+        new Product("Jeans", 300, 39.99, new NoDiscount())
     };
     public Product getProductByID(int pID){
         for (Product p : products) {

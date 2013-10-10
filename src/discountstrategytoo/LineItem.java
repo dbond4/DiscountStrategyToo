@@ -38,5 +38,8 @@ public class LineItem {
     public double getSubtotalAfterDiscount(){
         return product.getDiscountPrice(quantity);
     }
+    public double getUnitCost() {
+        return product.getUnitCost();
+    }
     
 }
