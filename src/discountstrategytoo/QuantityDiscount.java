@@ -41,7 +41,7 @@ public class QuantityDiscount implements DiscountStrategy{
             return quantity * unitCost;
         }
         else{
-            return (quantity * unitCost) * (ONE - getDiscountRate());
+            return quantity * ((ONE - getDiscountRate()) * unitCost);
         }
     }
     
