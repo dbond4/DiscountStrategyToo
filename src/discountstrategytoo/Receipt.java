@@ -5,6 +5,8 @@
 package discountstrategytoo;
 
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  *
@@ -18,6 +20,14 @@ public class Receipt {
     NumberFormat nf = NumberFormat.getCurrencyInstance();
     private static final String TFSaK = "Thank you for shopping at Kohls";
     
+    Calendar c = Calendar.getInstance();
+    
+    String format = "MM/dd/yyyy hh:mm a";
+        SimpleDateFormat sdf = new SimpleDateFormat(format);
+
+    public String getTime(){
+        return sdf.format(c.getTime());
+    }
     public void addItem(int productID, int quantity){
         LineItem item = new LineItem(fd.getProductByID(productID), quantity);
         addToArray(item);
@@ -62,6 +72,7 @@ public class Receipt {
        
     public String getReceipt(){
         String receiptData = TFSaK + "\n";
+        receiptData += getTime() + "\n";
         receiptData += "Customer: " + customer.getCustomerName() + "\n";
         receiptData += "Itme | Quantity | Cost: " + "\n";
         receiptData += getItemsFromArray();

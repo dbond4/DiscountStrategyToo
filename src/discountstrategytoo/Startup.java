@@ -4,6 +4,8 @@
  */
 package discountstrategytoo;
 
+import java.util.Date;
+
 /**
  *
  * @author F03 H4MM3R
